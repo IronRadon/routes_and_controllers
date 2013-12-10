@@ -1,6 +1,6 @@
 RoutesControllersApp::Application.routes.draw do
 
-  # resources :users
+  resources :contacts, :except => [:new, :edit]
 
   get   "users(.:format)", :to => "users#index"
   post  "users(.:format)", :to => "users#create"
