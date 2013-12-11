@@ -16,6 +16,7 @@ RoutesControllersApp::Application.routes.draw do
    resources :contacts, :only => [:index]
    get 'favorite'
    resources :groups, :only => [:index, :create, :destroy]
+   resources :comments, :only => [:index, :create, :destroy]
  end
 
 

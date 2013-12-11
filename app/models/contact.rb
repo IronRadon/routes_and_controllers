@@ -19,6 +19,11 @@ class Contact < ActiveRecord::Base
             :primary_key => 'id',
             :foreign_key => 'contact_id')
 
+  has_many( :comments,
+            :class_name => 'Comment',
+            :primary_key => 'id',
+            :foreign_key => 'contact_id')
+
   has_many :users_shared_to, :through => :users_shared, :source => :shared_user
 
   has_many :groups, :through => :group_memberships, :source => :group
