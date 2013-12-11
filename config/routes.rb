@@ -2,6 +2,7 @@ RoutesControllersApp::Application.routes.draw do
 
   resources :contacts, :except => [:new, :edit, :index]
   resources :contact_shares, :only => [:create, :destroy]
+  resources :group_memberships, :only => [:create, :destroy]
 
   # get   "users(.:format)", :to => "users#index"
  #  post  "users(.:format)", :to => "users#create"
@@ -14,6 +15,7 @@ RoutesControllersApp::Application.routes.draw do
  resources :users do
    resources :contacts, :only => [:index]
    get 'favorite'
+   resources :groups, :only => [:index, :create, :destroy]
  end
 
 

@@ -16,6 +16,11 @@ class User < ActiveRecord::Base
      :class_name => "ContactShare"
      )
 
+  has_many( :groups,
+            :class_name => 'Group',
+            :primary_key => 'id',
+            :foreign_key => 'user_id')
+
   has_many :contacts_shared, :through => :contacts_shared_to, :source => :contact
 
 

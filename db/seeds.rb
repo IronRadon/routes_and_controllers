@@ -23,7 +23,6 @@ c3 = Contact.create!(:name => "NOT Fern", :email => "notfern@definitelynotfern.c
 share1 = ContactShare.create!(:contact_id => c1.id, :user_id => user2.id)
 share2 = ContactShare.create!(:contact_id => c3.id, :user_id => user2.id)
 share3 = ContactShare.create!(:contact_id => c2.id, :user_id => user1.id)
-end
 
 group1 = Group.create!(:user_id => user1.id)
 group2 = Group.create!(:user_id => user2.id)
@@ -37,3 +36,5 @@ gm4 = GroupMembership.create!(:group_id => group2.id, :contact_id => c3.id)
 
 gm5 = GroupMembership.create!(:group_id => group3.id, :contact_id => c1.id)
 gm6 = GroupMembership.create!(:group_id => group3.id, :contact_id => c2.id)
+
+end
