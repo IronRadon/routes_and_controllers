@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131210213051) do
+ActiveRecord::Schema.define(:version => 20131211000059) do
 
   create_table "contact_shares", :force => true do |t|
     t.integer  "contact_id", :null => false
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20131210213051) do
     t.string   "name",       :null => false
     t.string   "email",      :null => false
     t.integer  "user_id",    :null => false
+    t.boolean  "favorite"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -34,6 +35,22 @@ ActiveRecord::Schema.define(:version => 20131210213051) do
   add_index "contacts", ["email"], :name => "index_contacts_on_email", :unique => true
   add_index "contacts", ["name"], :name => "index_contacts_on_name"
   add_index "contacts", ["user_id"], :name => "index_contacts_on_user_id"
+
+  create_table "group_memberships", :force => true do |t|
+    t.integer  "group_id",   :null => false
+    t.integer  "contact_id", :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "group_memberships", ["contact_id"], :name => "index_group_memberships_on_contact_id"
+  add_index "group_memberships", ["group_id"], :name => "index_group_memberships_on_group_id"
+
+  create_table "groups", :force => true do |t|
+    t.integer  "user_id",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name",       :null => false

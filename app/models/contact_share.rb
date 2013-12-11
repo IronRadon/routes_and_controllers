@@ -12,7 +12,7 @@ class ContactShare < ActiveRecord::Base
   belongs_to(
     :contact,
     :primary_key => :id,
-    :foreign_key => :contact_id
+    :foreign_key => :contact_id,
     :class_name => "Contact"
     )
 

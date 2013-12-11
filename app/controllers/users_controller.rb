@@ -40,4 +40,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def favorite
+    favorites = Contact.favorite_contacts_for_user_id(self.params[:user_id])
+
+    render :json => favorites
+  end
+
 end
